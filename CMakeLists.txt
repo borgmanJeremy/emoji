@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.13)
 set(EMOJI_VERSION 0.10.1)
 
 project(
-        emoji
+        emoji_selector
         VERSION ${EMOJI_VERSION}
         LANGUAGES CXX)
 

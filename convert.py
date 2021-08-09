@@ -5,9 +5,28 @@ def print_code():
     print("")
 
 def print_as_enum(name, set):
-    print("class enum {} {{".format(name))
+    print("enum class {} {{".format(name))
     for item in set:
         print("\t{},".format(item))
+    print("};")
+
+def print_as_unordered_map(input_list, key, class_name, map_name):
+    list_dict = list() 
+    for item in input_list:
+        list_dict.append({"string": item[key], "enum":format_category(item[key])})
+    result = [dict(tupleized) for tupleized in set(tuple(item.items()) for item in list_dict)] 
+
+    print('std::unordered_map<std::string, {}> {} = {{'.format(class_name, map_name))
+    for item in result:
+        print('{{ "{}", {}::{} }},'.format(item["string"], class_name, item["enum"]))
+    print('};')
+
+
+
+def print_as_vector(input_list):
+    print('std::vector<Emoji> emoji_list = {')
+    for item in input_list:
+        print('Emoji {{ Category::{}, Subcategory::{}, "{}", "{}" }},'.format(format_category(item["category"]), format_category(item["subcategory"]), item["description"], item["code"]))
     print("};")
 
 def format_category(input):
@@ -17,6 +36,7 @@ def format_category(input):
     formatted = formatted.upper()
     return formatted
 
+
 category = ""
 subcategory = ""
 code = ""
@@ -24,6 +44,7 @@ name = ""
 changed = False
 category_list =set() 
 subcategory_list =set() 
+code_list = list()
 with open("output_no_link.html","r") as file:
     for line in file:
         # print(line)
@@ -47,7 +68,7 @@ with open("output_no_link.html","r") as file:
         if "code" in line:
             soup = BeautifulSoup(line, features="html.parser")
             inner = soup.find('td').text
-            code = inner
+            code = inner.split(" ", 1)[0]
             changed = True
 
         if "name" in line:
@@ -60,9 +81,14 @@ with open("output_no_link.html","r") as file:
             #print("category: {}, subcategory: {}, name: {}, code: {}".format(category, subcategory, name, code))
             category_list.add(format_category(category))
             subcategory_list.add(format_category(subcategory))
+            code_list.append({"category": category, "subcategory": subcategory, "description": name, "code": code})
             name = ""
             code = "" 
             changed = False
 
+
 print_as_enum("Category", category_list)
 print_as_enum("Subcategory", subcategory_list)
+print_as_vector(code_list)
+#print_as_unordered_map(code_list,"category", "Category", "category_list")
+#print_as_unordered_map(code_list,"subcategory", "Subcategory", "subcategory_list")

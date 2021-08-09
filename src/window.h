@@ -5,6 +5,7 @@
 #include <QVBoxLayout>
 #include <QWidget>
 #include <vector>
+#include "emoji/emoji.h"
 
 class QPushButton;
 class Window : public QWidget {
@@ -15,4 +16,5 @@ class Window : public QWidget {
   // QLineEdit* m_search_bar;
   std::vector<QPushButton*> m_emoji_list;
   QGridLayout* m_layout;
+
 };

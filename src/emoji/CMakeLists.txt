@@ -1,0 +1,1 @@
+target_sources(emoji_selector PRIVATE emoji.cpp)

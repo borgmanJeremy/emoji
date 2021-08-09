@@ -20,6 +20,7 @@ Window::Window(QWidget* parent) : QWidget(parent) {
 
         m_layout->addWidget(m_emoji_list[i], 0, i, 1, 1);
   }
+    auto matches = Emoji::search_keys("Smil");
 
   this->setLayout(m_layout);
 }
