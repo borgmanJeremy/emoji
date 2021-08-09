@@ -69,6 +69,9 @@ with open("output_no_link.html","r") as file:
             soup = BeautifulSoup(line, features="html.parser")
             inner = soup.find('td').text
             code = inner.split(" ", 1)[0]
+            code = code.replace("U+",'')
+            length = len(code)
+            code = "\\U" + "0"*(8-length) + code
             changed = True
 
         if "name" in line:
@@ -87,8 +90,8 @@ with open("output_no_link.html","r") as file:
             changed = False
 
 
-print_as_enum("Category", category_list)
-print_as_enum("Subcategory", subcategory_list)
+#print_as_enum("Category", category_list)
+#print_as_enum("Subcategory", subcategory_list)
 print_as_vector(code_list)
 #print_as_unordered_map(code_list,"category", "Category", "category_list")
 #print_as_unordered_map(code_list,"subcategory", "Subcategory", "subcategory_list")

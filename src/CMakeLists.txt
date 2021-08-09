@@ -21,7 +21,7 @@ target_include_directories(emoji_selector
 target_sources(
         emoji_selector
         PRIVATE
-        window.cpp
+        emojiwindow.cpp
         main.cpp)
 
 target_link_libraries(

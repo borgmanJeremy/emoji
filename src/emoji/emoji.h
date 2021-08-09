@@ -11,7 +11,8 @@
 #include <iterator>
 #include <unordered_map>
 #include <unordered_set>
-namespace Emoji{
+
+namespace Emoji {
     std::unordered_set<unsigned int> search_keys(std::string const &search_term);
 
     enum class Category {
@@ -25,7 +26,7 @@ namespace Emoji{
         ANIMALS_AND_NATURE,
         TRAVEL_AND_PLACES,
         OBJECTS,
-        };
+    };
 
     enum class Subcategory {
         ARTS_AND_CRAFTS,
@@ -127,13 +128,14 @@ namespace Emoji{
         WARNING,
         COMPUTER,
         OTHER_SYMBOL,
-        };
+    };
 
     struct Emoji {
-        Emoji(Category category, Subcategory subcategory, std::string description, std::string code) :category(category), subcategory(subcategory), description(description), code(code)  {}
+        Emoji(Category category, Subcategory subcategory, std::string description, std::string code) : category(
+                category), subcategory(subcategory), description(description), code(code) {}
 
         Category const category;
-        Subcategory const subcategory ;
+        Subcategory const subcategory;
         std::string const description;
         std::string const code;
     };
