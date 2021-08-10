@@ -68,10 +68,11 @@ with open("output_no_link.html","r") as file:
         if "code" in line:
             soup = BeautifulSoup(line, features="html.parser")
             inner = soup.find('td').text
-            code = inner.split(" ", 1)[0]
-            code = code.replace("U+",'')
-            length = len(code)
-            code = "\\U" + "0"*(8-length) + code
+            #code = inner.split(" ", 1)[0]
+            code=inner 
+            code = code.replace("U+",'\\U')
+            #length = len(code)
+            #code = "\\U" + "0"*(8-length) + code
             changed = True
 
         if "name" in line:
