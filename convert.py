@@ -13,7 +13,7 @@ def print_as_enum(name, set):
 def print_as_unordered_map(input_list, key, class_name, map_name):
     list_dict = list() 
     for item in input_list:
-        list_dict.append({"string": item[key], "enum":format_category(item[key])})
+        list_dict.append({"string": item[key].lower(), "enum":format_category(item[key])})
     result = [dict(tupleized) for tupleized in set(tuple(item.items()) for item in list_dict)] 
 
     print('std::unordered_map<std::string, {}> {} = {{'.format(class_name, map_name))
@@ -84,7 +84,7 @@ with open("output_no_link.html","r") as file:
             #print("category: {}, subcategory: {}, name: {}, code: {}".format(category, subcategory, name, code))
             category_list.add(format_category(category))
             subcategory_list.add(format_category(subcategory))
-            code_list.append({"category": category, "subcategory": subcategory, "description": name, "code": code})
+            code_list.append({"category": category, "subcategory": subcategory, "description": name.lower(), "code": code})
             name = ""
             code = "" 
             changed = False

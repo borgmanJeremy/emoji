@@ -42,7 +42,7 @@ EmojiWindow::EmojiWindow(QWidget *parent) : QWidget(parent) {
 
     m_layout->setHorizontalSpacing(0);
     m_layout->setVerticalSpacing(0);
-    create_layout(m_layout, "Smil");
+    create_layout(m_layout, "Flag");
 
     this->setLayout(m_layout);
 }
