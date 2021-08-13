@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
     EmojiWindow window;
 
     auto *v_layout = new QVBoxLayout(main_window);
-    auto *line = new QLineEdit("fla", main_window);
+    auto *line = new QLineEdit("eye", main_window);
 
     scrollArea->setWidget(&window);
 
@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
     main_window->setFixedWidth(460);
     main_window->setFixedHeight(400);
 
-    // main_window->connect(line, &QLineEdit::textEdited,[&window, &line](){window.filter(line->text());});
+    main_window->connect(line, &QLineEdit::textEdited,[&window, &line](){window.filter(line->text());});
     main_window->show();
 
     return app.exec();

@@ -20,5 +20,7 @@ private:
     QGridLayout *m_layout;
     int number_of_cols = 5;
 
+    Emoji::EmojiList emoji;
+
     void create_layout(QGridLayout *layout, QString const &search_term);
 };
