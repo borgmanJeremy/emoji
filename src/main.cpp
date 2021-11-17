@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
     EmojiWindow window;
 
     auto *v_layout = new QVBoxLayout(main_window);
-    auto *line = new QLineEdit("eye", main_window);
+    auto *line = new QLineEdit("flag", main_window);
 
     scrollArea->setWidget(&window);
 

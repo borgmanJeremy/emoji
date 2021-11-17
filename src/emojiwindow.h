@@ -23,4 +23,5 @@ private:
     Emoji::EmojiList emoji;
 
     void create_layout(QGridLayout *layout, QString const &search_term);
+    void prevent_row_stretch(int last_row);
 };

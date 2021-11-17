@@ -122,6 +122,12 @@ namespace Emoji {
             }
         }
 
+        for (size_t i = 0; i < emoji_list.size(); i++) {
+            if (emoji_list[i].annotation.find(term) != std::string::npos) {
+                    add_unique(filter_results, i);
+            }
+        }
+
 
     }
 
