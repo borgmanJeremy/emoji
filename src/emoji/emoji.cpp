@@ -48,7 +48,7 @@ namespace Emoji {
     }
 
     EmojiList::EmojiList() {
-        path_prefix = "/home/jeremy/Downloads/openmoji-svg-color";
+        path_prefix = "/home/jeremy/github/emoji/assets/openmoji-svg-color";
         std::ifstream i("/home/jeremy/github/emoji/assets/index.json");
         json j;
         i >> j;

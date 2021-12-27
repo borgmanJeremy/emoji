@@ -15,9 +15,6 @@ QSvgWidget *create_svg(std::string emoji, QWidget *parent) {
     auto emoji_symbol = new QSvgWidget(QString::fromStdString(emoji), parent);
     auto height = emoji_symbol->height();
     auto width = emoji_symbol->width();
-    //emoji_symbol->setFixedHeight(50);
-    //auto new_width = 50 / ((float) height / (float) width);
-    //emoji_symbol->setFixedWidth(new_width);
     return emoji_symbol;
 }
 
